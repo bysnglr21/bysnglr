@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0b1324;
+  --brand: #0f766e; /* teal-700 */
+  --brand-foreground: #ffffff;
+  --muted: #f5f7fb;
+  --border: #e6eaf2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0b1324;
+    --foreground: #e6eefc;
+    --muted: #0f1a33;
+    --border: #1c2a4a;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand: var(--brand);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  text-rendering: optimizeLegibility;
+}
+
+/* Accessible focus styles */
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Utility */
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+@media (min-width: 768px) {
+  .container { max-width: 720px; }
+}
+@media (min-width: 1024px) {
+  .container { max-width: 960px; }
+}
+@media (min-width: 1280px) {
+  .container { max-width: 1200px; }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.5rem;
+  padding-inline: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: white;
+}
+.btn-primary {
+  background: var(--brand);
+  color: var(--brand-foreground);
+  border-color: transparent;
+}
+.btn-ghost {
+  background: transparent;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--muted);
+}
